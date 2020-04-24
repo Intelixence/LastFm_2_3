@@ -41,7 +41,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:text="TOP TRACKS"
+            android:text="TOPS"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@android:color/white"
             android:textSize="24sp"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.intelixence.lastfm1.CustomUi.ViewPager.LockableViewPager
+    <com.intelixence.lastfm23.CustomUi.ViewPager.LockableViewPager
         android:id="@+id/ac_lvp_fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
