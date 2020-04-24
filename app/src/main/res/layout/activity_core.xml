@@ -52,13 +52,26 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ListView
-        android:id="@+id/ac_lv_top_tracks"
+    <com.intelixence.lastfm1.CustomUi.ViewPager.LockableViewPager
+        android:id="@+id/ac_lvp_fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ac_tl_fragments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/ac_tl_fragments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ac_lvp_fragment"
+        app:tabIndicatorColor="@android:color/holo_blue_dark"
+        app:tabSelectedTextColor="#FFFFFF"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:tabTextColor="@android:color/black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

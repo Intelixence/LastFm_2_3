@@ -38,7 +38,7 @@ public class CoreTest {
                 allOf(withId(R.id.constraintLayout2),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.ac_lv_top_tracks),
+                                        withId(R.id.ftt_lv_top_tracks),
                                         0),
                                 0),
                         isDisplayed()));
