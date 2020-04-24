@@ -21,9 +21,9 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:fontFamily="sans-serif-condensed"
-        app:layout_constraintBottom_toBottomOf="@+id/md_iv_icono"
+        app:layout_constraintBottom_toBottomOf="@+id/md_iv_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/md_iv_icono"
+        app:layout_constraintStart_toEndOf="@+id/md_iv_icon"
         app:layout_constraintTop_toBottomOf="@+id/md_tv_rank" />
 
     <Button
@@ -82,7 +82,7 @@
         android:textStyle="bold"
         app:fontFamily="sans-serif-condensed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/md_iv_icono" />
+        app:layout_constraintTop_toBottomOf="@+id/md_iv_icon" />
 
     <TextView
         android:id="@+id/md_tv_rank"
@@ -101,8 +101,8 @@
         app:fontFamily="sans-serif-condensed"
         app:layout_constraintBottom_toTopOf="@+id/md_tv_listeners"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/md_iv_icono"
-        app:layout_constraintTop_toTopOf="@+id/md_iv_icono" />
+        app:layout_constraintStart_toEndOf="@+id/md_iv_icon"
+        app:layout_constraintTop_toTopOf="@+id/md_iv_icon" />
 
     <TextView
         android:id="@+id/md_tv_artist"
@@ -165,7 +165,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/md_iv_icono"
+        android:id="@+id/md_iv_icon"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"

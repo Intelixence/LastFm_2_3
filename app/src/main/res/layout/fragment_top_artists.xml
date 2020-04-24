@@ -75,7 +75,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ListView
-        android:id="@+id/fta_lv_top_tracks"
+        android:id="@+id/fta_lv_top_artists"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

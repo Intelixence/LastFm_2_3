@@ -3,7 +3,6 @@ package com.intelixence.lastfm23.CustomUi.Modals;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -20,9 +19,7 @@ import androidx.appcompat.app.AlertDialog;
 import com.intelixence.lastfm23.CustomUi.ListViews.TopTrack.ItemTopTrack;
 import com.intelixence.lastfm23.R;
 import com.intelixence.lastfm23.Utils.Cache;
-import com.intelixence.lastfm23.Utils.CustomLog;
 import com.intelixence.lastfm23.Utils.ImageUtils;
-import com.intelixence.peticiones.EasyReq;
 
 public class ModalDetails {
 
@@ -35,7 +32,7 @@ public class ModalDetails {
         Cache cache = new Cache(context.getSharedPreferences("imagenes", Context.MODE_PRIVATE));
 
         //starts the view components
-        final ImageView iv_icono = view.findViewById(R.id.md_iv_icono);
+        final ImageView iv_icon = view.findViewById(R.id.md_iv_icon);
         TextView tv_rank = view.findViewById(R.id.md_tv_rank);
         TextView tv_listeners = view.findViewById(R.id.md_tv_listeners);
         TextView tv_track = view.findViewById(R.id.md_tv_track);
@@ -47,7 +44,7 @@ public class ModalDetails {
         //listeners and sets
         String string_base64_track = cache.leer().getString(itemTopTrack.getRank_track()+"_track", null);
         if (string_base64_track != null) {
-            iv_icono.setImageBitmap(ImageUtils.convert(string_base64_track));
+            iv_icon.setImageBitmap(ImageUtils.convert(string_base64_track));
         }
 
         tv_rank.setText("Rank "+itemTopTrack.getRank_track());
