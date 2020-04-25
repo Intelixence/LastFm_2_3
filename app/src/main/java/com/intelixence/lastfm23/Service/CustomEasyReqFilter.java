@@ -18,8 +18,11 @@ import com.intelixence.lastfm23.Utils.CustomLog;
 import com.intelixence.lastfm23.Utils.Network;
 import com.intelixence.peticiones.EasyReq;
 import com.intelixence.peticiones.EasyReqFilter;
+import com.intelixence.peticiones.EasyReqLastRequest;
 
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class CustomEasyReqFilter extends EasyReqFilter {
 
@@ -62,8 +65,9 @@ public class CustomEasyReqFilter extends EasyReqFilter {
 
                             @Override
                             public void onPressBtn2() {
-                                TopTracks.getTopTracks(context, event);
-                                TopArtists.getTopArtists(context, event);
+                                ArrayList<EasyReqLastRequest> easyReqLastRequests = EasyReq.getHistoryRequests();
+                                EasyReq.ExecuteHistoryRequests(easyReqLastRequests.get(0));
+                                EasyReq.ExecuteHistoryRequests(easyReqLastRequests.get(1));
                                 ModalGeneral.HideModalGeneral();
                             }
                         });
@@ -100,7 +104,9 @@ public class CustomEasyReqFilter extends EasyReqFilter {
 
             @Override
             public void onPressBtn2() {
-                EasyReq.ExecuteLastRequest();
+                ArrayList<EasyReqLastRequest> easyReqLastRequests = EasyReq.getHistoryRequests();
+                EasyReq.ExecuteHistoryRequests(easyReqLastRequests.get(0));
+                EasyReq.ExecuteHistoryRequests(easyReqLastRequests.get(1));
                 ModalGeneral.HideModalGeneral();
             }
         };
@@ -126,7 +132,9 @@ public class CustomEasyReqFilter extends EasyReqFilter {
 
             @Override
             public void onPressBtn2() {
-                EasyReq.ExecuteLastRequest();
+                ArrayList<EasyReqLastRequest> easyReqLastRequests = EasyReq.getHistoryRequests();
+                EasyReq.ExecuteHistoryRequests(easyReqLastRequests.get(0));
+                EasyReq.ExecuteHistoryRequests(easyReqLastRequests.get(1));
                 ModalGeneral.HideModalGeneral();
             }
         };
@@ -149,7 +157,9 @@ public class CustomEasyReqFilter extends EasyReqFilter {
             }
             @Override
             public void onPressBtn2() {
-                EasyReq.ExecuteLastRequest();
+                ArrayList<EasyReqLastRequest> easyReqLastRequests = EasyReq.getHistoryRequests();
+                EasyReq.ExecuteHistoryRequests(easyReqLastRequests.get(0));
+                EasyReq.ExecuteHistoryRequests(easyReqLastRequests.get(1));
                 ModalGeneral.HideModalGeneral();
             }
         });

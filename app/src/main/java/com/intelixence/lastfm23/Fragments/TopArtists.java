@@ -61,7 +61,7 @@ public class TopArtists extends Fragment implements EasyReq.Event{
         return view;
     }
 
-    public static void getTopArtists(final Context context, EasyReq.Event event){
+    void getTopArtists(final Context context, EasyReq.Event event){
         EasyReq.POST_FORM_URL_ENCODED(context, Required.getUrl_geo_get_top_artist(), new CustomEasyReqFilter(), 2, null, event, new EasyReq.State() {
             @Override
             public void Start() {
@@ -74,10 +74,13 @@ public class TopArtists extends Fragment implements EasyReq.Event{
     }
 
     private static int paginacion = 0;
+    private int contador = 0;
 
     @Override
     public void Response(String response, int code_request) {
         try {
+            paginacion = 0;
+            contador = 0;
             final JSONArray json_artists = new JSONObject(new String(response.getBytes("ISO-8859-1"), "UTF-8")).getJSONObject("topartists").getJSONArray("artist");
             final ArrayList<ItemTopArtist> itemsTopArtists = new ArrayList<>();
             final ArrayList<ItemTopArtist> itemsTopArtistsSearch = new ArrayList<>();
@@ -100,9 +103,12 @@ public class TopArtists extends Fragment implements EasyReq.Event{
                     @Override
                     public void Start() {
                     }
+
                     @Override
                     public void Downloaded(Bitmap bitmap) {
                         cache.leer().edit().putString(artist_name.trim()+"_image", ImageUtils.convert(bitmap)).apply();
+                        contador++;
+                        CustomLog.i("Downloaded", "---------------------------------------------"+contador);
                     }
                     @Override
                     public void Error(String error) {

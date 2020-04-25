@@ -17,6 +17,7 @@ import com.intelixence.lastfm23.CustomUi.ViewPager.LockableViewPager;
 import com.intelixence.lastfm23.Fragments.TopArtists;
 import com.intelixence.lastfm23.Fragments.TopTracks;
 import com.intelixence.lastfm23.R;
+import com.intelixence.peticiones.EasyReq;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,7 @@ public class Core extends AppCompatActivity {
         tl_fragments = findViewById(R.id.ac_tl_fragments);
 
         //process
+        EasyReq.enabledHistoryRequests(true);
         tv_url.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

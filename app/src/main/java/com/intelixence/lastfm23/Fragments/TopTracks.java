@@ -64,7 +64,7 @@ public class TopTracks extends Fragment implements EasyReq.Event{
         return view;
     }
 
-    public static void getTopTracks(final Context context, EasyReq.Event event){
+    void getTopTracks(final Context context, EasyReq.Event event){
         EasyReq.POST_FORM_URL_ENCODED(context, Required.getUrl_geo_get_top_tracks(), new CustomEasyReqFilter(), 1, null, event, new EasyReq.State() {
             @Override
             public void Start() {
@@ -81,6 +81,7 @@ public class TopTracks extends Fragment implements EasyReq.Event{
     @Override
     public void Response(String response, int code_request) {
         try {
+            paginacion = 0;
             final JSONArray json_tracks = new JSONObject(new String(response.getBytes("ISO-8859-1"), "UTF-8")).getJSONObject("tracks").getJSONArray("track");
             final ArrayList<ItemTopTrack> itemsTopTracks = new ArrayList<>();
             final ArrayList<ItemTopTrack> itemsTopTracksSearch = new ArrayList<>();
@@ -218,7 +219,6 @@ public class TopTracks extends Fragment implements EasyReq.Event{
             });
             ListViewTopTrack listViewTopTrack = new ListViewTopTrack(getActivity(), itemsTopTracks);
             lv_top_tracks.setAdapter(listViewTopTrack);
-            ProgressBarGeneral.HideProgressBarGeneral();
         }catch (Exception e){
             CustomEasyReqFilter.mostrar_modal_error(getActivity(), e);
         }
