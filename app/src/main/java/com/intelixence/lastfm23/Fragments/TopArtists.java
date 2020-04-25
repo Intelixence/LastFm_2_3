@@ -57,15 +57,15 @@ public class TopArtists extends Fragment implements EasyReq.Event{
         et_search = view.findViewById(R.id.fta_et_search);
 
         //process
-        getTopArtists();
+        getTopArtists(getContext(), this);
         return view;
     }
 
-    public void getTopArtists(){
-        EasyReq.POST_FORM_URL_ENCODED(getContext(), Required.getUrl_geo_get_top_artist(), new CustomEasyReqFilter(), 2, null, this, new EasyReq.State() {
+    public static void getTopArtists(final Context context, EasyReq.Event event){
+        EasyReq.POST_FORM_URL_ENCODED(context, Required.getUrl_geo_get_top_artist(), new CustomEasyReqFilter(), 2, null, event, new EasyReq.State() {
             @Override
             public void Start() {
-                ProgressBarGeneral.ShowProgressBarGeneral(getContext(), "Cargando");
+                ProgressBarGeneral.ShowProgressBarGeneral(context, "Cargando");
             }
             @Override
             public void End() {

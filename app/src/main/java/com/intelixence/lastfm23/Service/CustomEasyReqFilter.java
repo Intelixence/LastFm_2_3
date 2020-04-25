@@ -12,6 +12,8 @@ import com.intelixence.lastfm23.CustomUi.Modals.ModalGeneral;
 import com.intelixence.lastfm23.CustomUi.ProgressBar.ProgressBarGeneral;
 import com.intelixence.lastfm23.Database.ManagerDatabase;
 import com.intelixence.lastfm23.Database.SqlFunctions;
+import com.intelixence.lastfm23.Fragments.TopArtists;
+import com.intelixence.lastfm23.Fragments.TopTracks;
 import com.intelixence.lastfm23.Utils.CustomLog;
 import com.intelixence.lastfm23.Utils.Network;
 import com.intelixence.peticiones.EasyReq;
@@ -33,7 +35,7 @@ public class CustomEasyReqFilter extends EasyReqFilter {
     }
 
     @Override
-    public void Filter_error(final Context context, VolleyError volleyError, int code_request, EasyReq.Event event) {
+    public void Filter_error(final Context context, VolleyError volleyError, int code_request, final EasyReq.Event event) {
         CustomLog.i("Auto_clasificar", "Filter_error:---------------------------------------------------------------------------------------------"+volleyError);
         if (SqlFunctions.dataAlreadyExist(context, code_request)){
             event.Response(SqlFunctions.getData(context, code_request), code_request);
@@ -60,7 +62,8 @@ public class CustomEasyReqFilter extends EasyReqFilter {
 
                             @Override
                             public void onPressBtn2() {
-                                EasyReq.ExecuteLastRequest();
+                                TopTracks.getTopTracks(context, event);
+                                TopArtists.getTopArtists(context, event);
                                 ModalGeneral.HideModalGeneral();
                             }
                         });

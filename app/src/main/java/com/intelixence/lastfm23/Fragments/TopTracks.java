@@ -60,15 +60,15 @@ public class TopTracks extends Fragment implements EasyReq.Event{
         et_search = view.findViewById(R.id.ftt_et_search);
 
         //process
-        getTopTracks();
+        getTopTracks(getContext(), this);
         return view;
     }
 
-    public void getTopTracks(){
-        EasyReq.POST_FORM_URL_ENCODED(getContext(), Required.getUrl_geo_get_top_tracks(), new CustomEasyReqFilter(), 1, null, this, new EasyReq.State() {
+    public static void getTopTracks(final Context context, EasyReq.Event event){
+        EasyReq.POST_FORM_URL_ENCODED(context, Required.getUrl_geo_get_top_tracks(), new CustomEasyReqFilter(), 1, null, event, new EasyReq.State() {
             @Override
             public void Start() {
-                ProgressBarGeneral.ShowProgressBarGeneral(getContext(), "Cargando");
+                ProgressBarGeneral.ShowProgressBarGeneral(context, "Cargando");
             }
             @Override
             public void End() {
