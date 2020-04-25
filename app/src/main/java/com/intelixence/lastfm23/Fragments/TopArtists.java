@@ -51,10 +51,10 @@ public class TopArtists extends Fragment implements EasyReq.Event{
 
         //starts the view components
         lv_top_artist = view.findViewById(R.id.fta_lv_top_artists);
-        btn_left_pagination = view.findViewById(R.id.ftt_btn_left_pagination);
-        tv_pagination = view.findViewById(R.id.ftt_tv_pagination);
-        btn_right_pagination = view.findViewById(R.id.ftt_btn_right_pagination);
-        et_search = view.findViewById(R.id.ftt_et_search);
+        btn_left_pagination = view.findViewById(R.id.fta_btn_left_pagination);
+        tv_pagination = view.findViewById(R.id.fta_tv_pagination);
+        btn_right_pagination = view.findViewById(R.id.fta_btn_right_pagination);
+        et_search = view.findViewById(R.id.fta_et_search);
 
         //process
         getTopArtists();
@@ -154,7 +154,6 @@ public class TopArtists extends Fragment implements EasyReq.Event{
                 }
             });
 
-            /*
             btn_right_pagination.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -202,7 +201,7 @@ public class TopArtists extends Fragment implements EasyReq.Event{
                         }
                     }
                 }
-            });*/
+            });
             ListViewTopArtist listViewTopTrack = new ListViewTopArtist(getActivity(), itemsTopArtists);
             lv_top_artist.setAdapter(listViewTopTrack);
             ProgressBarGeneral.HideProgressBarGeneral();
