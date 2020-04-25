@@ -51,12 +51,12 @@ public class ListViewTopArtist extends BaseAdapter {
         }
 
         Cache cache = new Cache(activity.getSharedPreferences("imagenes", Context.MODE_PRIVATE));
-        ImageView iv_icon =convertView.findViewById(R.id.ilta_iv_icon);
+        ImageView iv_icon = convertView.findViewById(R.id.ilta_iv_icon);
         TextView tv_name_asrtist = convertView.findViewById(R.id.ilta_tv_name_artist);
         TextView tv_listeners_artist = convertView.findViewById(R.id.ilta_tv_listeners_artist);
         Button btn_open_web = convertView.findViewById(R.id.ilta_btn_open_web);
 
-        String string_base64_track = cache.leer().getString(itemsTopArtists.get(position).getName_artist(), null);
+        String string_base64_track = cache.leer().getString(itemsTopArtists.get(position).getName_artist().trim()+"_image", null);
         if (string_base64_track != null) {
             iv_icon.setImageBitmap(ImageUtils.convert(string_base64_track));
         }

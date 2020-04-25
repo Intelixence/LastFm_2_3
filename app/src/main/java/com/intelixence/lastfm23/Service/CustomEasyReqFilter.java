@@ -112,4 +112,26 @@ public class CustomEasyReqFilter extends EasyReqFilter {
         };
         ModalGeneral.ShowModalGeneral(context, "Sin internet", "Sin conexion a internet, verifica tu <a href='http'>wifi</a> o <a href='http'>datos moviles</a>.", "Salir", "Reintentar", onModalGeneral);
     }
+
+    public static void mostrar_modal_error(final Activity activity, Exception e){
+        ModalGeneral.ShowModalGeneral(activity, "Error", "Error de la aplicacion \""+e.toString()+"\"", "Salir", "Reintentar", new ModalGeneral.OnModalGeneral() {
+            @Override
+            public void onPressTitle() {
+            }
+            @Override
+            public void onPressMessage() {
+            }
+            @Override
+            public void onPressBtn1() {
+                activity.startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                activity.finish();
+                System.exit(0);
+            }
+            @Override
+            public void onPressBtn2() {
+                EasyReq.ExecuteLastRequest();
+                ModalGeneral.HideModalGeneral();
+            }
+        });
+    }
 }
