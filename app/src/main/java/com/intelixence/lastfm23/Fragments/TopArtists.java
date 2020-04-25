@@ -58,15 +58,11 @@ public class TopArtists extends Fragment implements EasyReq.Event{
 
         //process
         getTopArtists();
-        ArrayList<ItemTopArtist> itemsTopArtists = new ArrayList<>();
-        itemsTopArtists.add(new ItemTopArtist("hola", 500000, "http://google.com"));
-        ListViewTopArtist listViewTopTrack = new ListViewTopArtist(getActivity(), itemsTopArtists);
-        lv_top_artist.setAdapter(listViewTopTrack);
         return view;
     }
 
     public void getTopArtists(){
-        EasyReq.POST_FORM_URL_ENCODED(getContext(), Required.getUrl_geo_get_top_artist(), new CustomEasyReqFilter(), 1, null, this, new EasyReq.State() {
+        EasyReq.POST_FORM_URL_ENCODED(getContext(), Required.getUrl_geo_get_top_artist(), new CustomEasyReqFilter(), 2, null, this, new EasyReq.State() {
             @Override
             public void Start() {
                 ProgressBarGeneral.ShowProgressBarGeneral(getContext(), "Cargando");
